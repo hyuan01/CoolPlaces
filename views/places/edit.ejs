@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate') %> 
+<div class="mb-3">
+    <h1 class="text-center">Edit place details</h1>
+    <div class="col-6 offset-3">
+        <form action="/coolplaces/<%= place._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" value="<%= place.title %>" id="title" name="place[title]" required>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label class="form-label" for="title">Location</label>
+                <input class="form-control" type="text" value="<%= place.location %>" id="location" name="place[location]" required>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label class="form-label" for="title">Description</label>
+                <textarea class="form-control" rows="3" type="text" id="description" name="place[description]" required><%= place.description %></textarea>
+            </div>
+
+
+            <label class="form-file-label" for="image">Add Images (Optional)</label>
+            <div class="mb-3">
+                <input type="file" class="form-file-input" id="image" name="image" multiple>
+            </div>
+
+            <div class="mb-3">
+                <% place.image.forEach(function(img, i) {  %>
+                <img style="max-width: 200px;"src="<%=img.url %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% })%>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-info">Finish Changes</button>
+            </div>
+        </form>
+        <a href="/coolplaces/<%= place._id %>">Go back to place</a>
+    </div>
+</div>

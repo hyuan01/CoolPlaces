@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+    <div>
+        <h1 class="text-center">Add a new place!</h1>
+        <div class="col-6 offset-3">
+            <form action="/coolplaces" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="place[title]" required>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="title">Location</label>
+                    <input class="form-control" type="text" id="location" name="place[location]" required>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="title">Description</label>
+                    <textarea class="form-control" rows="3" value="" type="text" id="description" name="place[description]" required></textarea>
+                </div>
+
+
+                <label class="form-file-label" for="image">Add Images (Optional)</label>
+                <div class="mb-3">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                </div>
+                
+
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Place!</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
