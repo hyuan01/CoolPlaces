@@ -2,8 +2,8 @@
 
 <div id="map"></div>
 <h1> LIST OF COOL PLACES </h1>
-<div>
-    <a href="/coolplaces/new">Add a cool place!</a>
+<div class="mb-3">
+    <a class="btn btn-primary" href="/coolplaces/new">Add a cool place!</a>
 </div>
 
 
@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-md-4">
                 <% if(place.image.length) { %>
-                <img style="padding:1%" class="img-fluid" alt="" src="<%=place.image[0].url%>">
+                <img class="img-fluid" alt="" src="<%=place.image[0].url%>">
                 <% } else { %>
-                <img style="padding:1%" class="img-fluid" alt="" src="https://res.cloudinary.com/dm1lmzevi/image/upload/v1668162797/CoolPlaces/istockphoto-1147544807-612x612_b4v3m6.jpg">
+                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dm1lmzevi/image/upload/v1668162797/CoolPlaces/istockphoto-1147544807-612x612_b4v3m6.jpg">
                 <% } %>
             </div>
 

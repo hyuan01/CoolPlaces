@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Comment = require('./comment');
 const Schema = mongoose.Schema;
 
+const opts = { toJSON: {virtuals: true }};
+
 const PlaceSchema = new Schema({
     title: String,
     image: [
@@ -31,6 +33,10 @@ const PlaceSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }]
+}, opts);
+
+PlaceSchema.virtual('properties.popUpMarkup').get(function () {
+    return `<strong><a href="/coolplaces/${this._id}">${this.title}</a><strong>`
 });
 
 PlaceSchema.post('findOneAndDelete', async function (doc) {
